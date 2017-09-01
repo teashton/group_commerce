@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+	root "shops#index"
   get 'items/index'
 
   get 'items/show'
