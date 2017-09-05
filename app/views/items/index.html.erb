@@ -1,2 +1,41 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<div class="ui container center aligned">
+  <h1 class="ui header" id="header">Welcome to the Shop!</h1>
+
+  <% if @items.any? %>
+  <div class="ui grid">
+    <% @items.each do |item| %>
+      <div class="sixteen wide mobile weight wide tablet four wide computer column">
+        <div class="ui fluid card">
+          <div class="ui medium image">
+            <img src="<%= item.picture %>" />
+          </div>
+          <div class="content">
+            <%= link_to "#{item.name}", item, class: "center aligned header" %>
+          </div>
+          <div class="content">
+            <p><%= item.desc %></p>
+          </div>
+          <div class="content">
+            <p><%= item.price %></p>
+          </div>
+          <div class="center aligned extra content">
+            <div class="ui two buttons">
+              <div class="green button basic">
+                <%= link_to "Edit", edit_item_path(item) %>
+              </div>
+              <div class="red button basic">
+                <%= link_to "Remove", item,
+                 method: :delete,
+                 data: { confirm: 'Are you sure?'}
+                %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <% else %>
+        <h3 id="error">No Items Found, <%= link_to 'Add some!', new_item_path %></h3>
+    <% end %>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GroupCommerce</title>
+    <title>E-Commerce Shop</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,6 +10,8 @@
 
   <body>
     <%= render(partial: 'layouts/navbar') %>
+    <div class="ui container center aligned">
     <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,0 +1,26 @@
+<div class="ui container center aligned">
+  <%= form_for(shop) do |f| %>
+    <% if shop.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(shop.errors.count, "error") %> prohibited this shop from being saved:</h2>
+
+        <ul>
+        <% shop.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="ui form">
+      <div class="field">
+        <p><%= f.label :name %></p>
+        <%= f.text_field :name, placeholder: "Enter Item Name" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit nil, class: "ui button" %>
+      </div>
+    </div>
+  <% end %>
+</div>
